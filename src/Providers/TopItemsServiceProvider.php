@@ -12,11 +12,5 @@ class TopItemsServiceProvider extends ServiceProvider
         $this->getApplication()->register(TopItemsRouteServiceProvider::class);
     }
 
-    /**
-    * Boot a template for the basket that will be displayed in the template plugin instead of the original basket.
-    */
-   public function boot(Twig $twig, Dispatcher $eventDispatcher)
-   {
-       
-   }
+    
 }
