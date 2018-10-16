@@ -1,13 +1,11 @@
 <?php
+ namespace HeistaDesign\Controllers;
 
-namespace HeistaDesign\Controllers;
-
-
-use Plenty\Plugin\Controller;
+ use Plenty\Plugin\Controller;
 use Plenty\Plugin\Templates\Twig;
 use Plenty\Modules\Item\DataLayer\Contracts\ItemDataLayerRepositoryContract;
 
-class ContentController extends Controller
+ class ContentController extends Controller
 {
     public function showTopItems(Twig $twig, ItemDataLayerRepositoryContract $itemRepository):string
     {
@@ -27,21 +25,17 @@ class ContentController extends Controller
                 'cleanImageName'
             ]
         ];
-
-        $itemFilter = [
+         $itemFilter = [
             'itemBase.isStoreSpecial' => [
                 'shopAction' => [3]
             ]
         ];
-
-        $itemParams = [
+         $itemParams = [
             'language' => 'en'
         ];
-
-        $resultItems = $itemRepository
+         $resultItems = $itemRepository
             ->search($itemColumns, $itemFilter, $itemParams);
-
-        $items = array();
+         $items = array();
         foreach ($resultItems as $item)
         {
             $items[] = $item;
@@ -50,7 +44,6 @@ class ContentController extends Controller
             'resultCount' => $resultItems->count(),
             'currentItems' => $items
         );
-
-        return $twig->render('HeistaDesign::content.TopItems', $templateData);
+         return $twig->render('HeistaDesign::content.TopItems', $templateData);
     }
 }

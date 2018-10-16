@@ -1,12 +1,8 @@
 <?php
-
-namespace HeistaDesign\Providers;
-
-
-use Plenty\Plugin\RouteServiceProvider;
+ namespace HeistaDesign\Providers;
+ use Plenty\Plugin\RouteServiceProvider;
 use Plenty\Plugin\Routing\Router;
-
-class TopItemsRouteServiceProvider extends RouteServiceProvider
+ class TopItemsRouteServiceProvider extends RouteServiceProvider
 {
     public function map(Router $router)
     {

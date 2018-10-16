@@ -1,16 +1,10 @@
 <?php
-
-namespace HeistaDesign\Providers;
-
-
-use Plenty\Plugin\ServiceProvider;
-
-class TopItemsServiceProvider extends ServiceProvider
+ namespace HeistaDesign\Providers;
+ use Plenty\Plugin\ServiceProvider;
+ class TopItemsServiceProvider extends ServiceProvider
 {
     public function register()
     {
         $this->getApplication()->register(TopItemsRouteServiceProvider::class);
     }
-
-    
 }
