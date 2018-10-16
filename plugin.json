@@ -1,0 +1,8 @@
+{
+    "name"              :"HeistaDesign",
+    "description"       :"A HeistaDesign for belagroup",
+    "namespace"         :"HeistaDesign",
+    "author"            :"Edgart Keil",
+    "type"              :"template",
+    "serviceProvider"   :"HeistaDesign\\Providers\\TopItemsServiceProvider"
+}
