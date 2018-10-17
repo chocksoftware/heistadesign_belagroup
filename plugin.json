@@ -4,5 +4,5 @@
     "namespace"         :"HeistaDesign",
     "author"            :"Edgart Keil",
     "type"              :"template",
-    "serviceProvider"   :"HeistaDesign\\Providers\\TopItemsServiceProvider"
+    "serviceProvider"   :"HeistaDesign\\Providers\\HeistaDesignServiceProvider"
 }
