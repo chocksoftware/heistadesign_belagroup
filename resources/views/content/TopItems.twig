@@ -2,16 +2,11 @@
 
 {% block PageBody %}
 
-<style type="text/css">
-
-
-</style>
-
 {% set companyLogo  = config("Ceres.header.company_logo") %}
 {% set companyName  = trans("Ceres::Template.headerCompanyName") %}
 
-    <nav class="navbar navbar-light bg-light" >
-        <a class="navbar-brand" href="#">
+    <nav class="navbar navbar-dark bg-dark" >
+        <a class="navbar-brand" href="{{homepageURL}}">
             <img src="{{companyLogo}}" alt="{{companyName}}">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
