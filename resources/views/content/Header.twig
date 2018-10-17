@@ -1,8 +1,9 @@
 {% set companyLogo  = config("Ceres.header.company_logo") %}
 {% set companyName  = trans("Ceres::Template.headerCompanyName") %}
+{% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
+{% set showHeaderNavBar = config("Ceres.header.show_navbars") %}
 
-
-<nav class="navbar{% if useMegaMenu %} megamenu{%endif%}">
+<nav class="navbar{% if useMegaMenu %} megamenu{%endif%}" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.76), rgba(0,0,0,0.89)), url(https://www.zeitlounge.com/layout/zeitlounge2016/body-bgd.jpg);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);background-position: right;">
     <div class="container-max">
         <div class="row">
             <div class="brand-wrapper" {% if showHeaderNavBar == "side" %}style="position: relative"{% endif %}>
@@ -23,10 +24,20 @@
                 <ul class="breadcrumb">
                     <li class="btnClose"></li>
                 </ul>
-                {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
-                    {# includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') #}
-                    {% include "Ceres::PageDesign.Partials.Header.NavigationList" %}
-                {% endif %}
+                {% import "Ceres::Category.Macros.CategoryTree" as Tree %}
+
+                <ul class="mainmenu pull-lg-right">
+                    {{ Tree.get_nav_bar(
+                        categories,
+                        "",
+                        ceresConfig.header.megamenuLevels,
+                        {
+                            "1": ceresConfig.header.megamenuItemsStage1,
+                            "2": ceresConfig.header.megamenuItemsStage2,
+                            "3": ceresConfig.header.megamenuItemsStage3
+                        }
+                    ) }}
+                </ul>
             </div>
 
         </div>
