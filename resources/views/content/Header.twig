@@ -1,6 +1,8 @@
 {% set companyLogo  = config("Ceres.header.company_logo") %}
 {% set companyName  = trans("Ceres::Template.headerCompanyName") %}
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{{ homepageURL }}">
         <img src="{{companyLogo}}" alt="{{companyName}}">
