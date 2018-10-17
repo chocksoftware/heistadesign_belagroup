@@ -25,12 +25,9 @@ class HeistaDesignServiceProvider extends ServiceProvider
         $eventDispatcher->listen('IO.init.templates', function(Partial $partial)
         {
            $partial->set('footer', 'HeistaDesign::content.ThemeFooter');
+           $partial->set('homepage', 'HeistaDesign::content.Homepage');
         }, 0);
 
-        $eventDispatcher->listen('IO.init.templates', function(Partial $partial)
-        {
-            $partial->set('homepage', 'HeistaDesign::content.Homepage');
-        }, 0);
         return false;
     }
 }
