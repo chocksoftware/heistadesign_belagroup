@@ -4,5 +4,13 @@
     "namespace"         :"HeistaDesign",
     "author"            :"Edgart Keil",
     "type"              :"template",
-    "serviceProvider"   :"HeistaDesign\\Providers\\HeistaDesignServiceProvider"
+    "serviceProvider"   :"HeistaDesign\\Providers\\HeistaDesignServiceProvider",
+    "dataProviders"         :
+    [
+        {
+            "key"           :"HeistaDesign\\Containers\\HeistaDesignContainer",
+            "name"          :"Dark background",
+            "description"   :"Change the background colour of the Ceres template"
+        }
+    ]
 }
