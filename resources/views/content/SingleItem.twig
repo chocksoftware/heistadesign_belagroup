@@ -12,8 +12,9 @@
                     </span>
                 </h1>
             </div>
+            <!-- ITEM picture -->
             <div class="row m-t-3">
-                <div class="col-md-4 single-leftside">
+                <div class="col-md-3 single-leftside">
                     <div class="row">
                         <div class="col-xs-12">
                             <item-image-carousel image-url-accessor="url" template="#vue-item-image-carousel"></item-image-carousel>
@@ -23,6 +24,11 @@
                 <!-- ITEM DESCRIPTION -->
                 <div class="col-md-4  m-t-1" v-stick-in-parent>
                     {% if ('item.shortDescription' in itemData or 'all' in itemData)%}
+                        <style>
+                            .single-description span{
+                                display: block;
+                            }
+                        </style>
                         <p class="single-description" v-if="currentVariation.texts.shortDescription !== ''" v-html="currentVariation.texts.shortDescription"></p>
                     {% endif %}
                 </div>
