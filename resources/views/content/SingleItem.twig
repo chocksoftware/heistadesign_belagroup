@@ -6,14 +6,16 @@
     <div>
         <div class="single container-max page-content">
             <div class="row m-t-3">
+                <!-- Article title -->
                 <h1 class="h2 title" style="color: #c00; font-weight: 300; font-size: 36px; text-align:center; font-family: font-family: 'Open Sans', sans-serif;">
                     <span>
                         ${ currentVariation | itemName }
                     </span>
                 </h1>
             </div>
-            <!-- ITEM picture -->
+            
             <div class="row m-t-3">
+                <!-- ITEM picture -->
                 <div class="col-md-3 single-leftside">
                     <div class="row">
                         <div class="col-xs-12">
@@ -24,11 +26,6 @@
                 <!-- ITEM DESCRIPTION -->
                 <div class="col-md-4  m-t-1" v-stick-in-parent>
                     {% if ('item.shortDescription' in itemData or 'all' in itemData)%}
-                        <style>
-                            .single-description {
-                                background-color: red;
-                            }
-                        </style>
                         <p class="single-description" v-if="currentVariation.texts.shortDescription !== ''" v-html="currentVariation.texts.shortDescription"></p>
                     {% endif %}
 
