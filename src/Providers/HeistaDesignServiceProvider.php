@@ -26,7 +26,17 @@ class HeistaDesignServiceProvider extends ServiceProvider
         {
            $partial->set('header', 'HeistaDesign::content.Header');
            $partial->set('singleitem', 'HeistaDesign:content.SingleItem');
+
+
         }, 0);
+
+        $eventDispatcher->listen('IO.Component.Import', function (ComponentContainer $container)
+        {
+            if ($container->getOriginComponentTemplate()=='Ceres::Item.Components.SingleItem')
+            {
+                $container->setNewComponentTemplate('HeistaDesign::content.SingleItem');
+            }
+        }, self::PRIORITY);
 
         return false;
     }
