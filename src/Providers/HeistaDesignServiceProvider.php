@@ -25,6 +25,7 @@ class HeistaDesignServiceProvider extends ServiceProvider
         $eventDispatcher->listen('IO.init.templates', function(Partial $partial)
         {
            $partial->set('header', 'HeistaDesign::content.Header');
+           $partial->set('singleitem', 'HeistaDesign:content.SingleItem');
         }, 0);
 
         return false;
