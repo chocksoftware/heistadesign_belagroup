@@ -1,7 +1,9 @@
 <?php
  
 namespace HeistaDesign\Providers;
- 
+
+use IO\Helper\TemplateContainer;
+use IO\Helper\ComponentContainer;
 use IO\Extensions\Functions\Partial;
 use Plenty\Plugin\Events\Dispatcher;
 use Plenty\Plugin\ServiceProvider;
@@ -25,9 +27,7 @@ class HeistaDesignServiceProvider extends ServiceProvider
         $eventDispatcher->listen('IO.init.templates', function(Partial $partial)
         {
            $partial->set('header', 'HeistaDesign::content.Header');
-           $partial->set('singleitem', 'HeistaDesign:content.SingleItem');
-
-
+          
         }, 0);
 
         $eventDispatcher->listen('IO.Component.Import', function (ComponentContainer $container)
