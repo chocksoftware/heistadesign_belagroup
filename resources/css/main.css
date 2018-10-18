@@ -3,7 +3,11 @@ body {
     
 }
 
-#single-shortdesc strong {
+nav.navbar.megamenu #mainNavbarCollapsable ul.mainmenu > li {
+    color: #fff;
+}
+
+#articleDesc strong {
     color: #666;
     display: block;
     font-size: 10px;
