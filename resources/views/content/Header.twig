@@ -3,7 +3,7 @@
 {% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
 {% set showHeaderNavBar = config("Ceres.header.show_navbars") %}
 
-<nav class="navbar{% if useMegaMenu %} megamenu{%endif%}" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.76), rgba(0,0,0,0.89)), url(https://www.zeitlounge.com/layout/zeitlounge2016/body-bgd.jpg);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);background-position: right;">
+<nav class="navbar megamenu" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.76), rgba(0,0,0,0.89)), url(https://www.zeitlounge.com/layout/zeitlounge2016/body-bgd.jpg);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);background-position: right;">
     <div class="container-max">
         <div class="row">
             <div class="brand-wrapper" {% if showHeaderNavBar == "side" %}style="position: relative"{% endif %}>
