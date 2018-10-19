@@ -89,7 +89,7 @@
                                 template="#vue-add-to-basket"
                                 v-if="currentVariation.filter.isSalable"
                                 :item="$store.state.item.variation.documents[0].data"
-                                :show-quantity="true"
+                                :show-quantity="false"
                                 :missing-order-properties="variationMissingProperties"
                                 :is-variation-selected="isVariationSelected"></add-to-basket>
                         <slot name="AfterAddToBasket"></slot>
