@@ -94,17 +94,21 @@
                         <slot name="AfterAddToBasket"></slot>
                     </div>
 
-                    <div class="row">
+                    <!-- Preisanfrage -->
+                    <div class="m-b-3">
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Preisanfrage
                         </button>
                     </div>
+
+                    <!-- Wunschliste -->
                     {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                         <div class="row">
                             <add-to-wish-list :variation-id="currentVariation.variation.id"></add-to-wish-list>
                         </div>
                     {% endif %}
                     
+                    <!-- Artikelnummer -->
                     <div class="m-b-3">
                         <span class="articlenumber small text-muted">
                             <b>{{ trans("Ceres::Template.singleItemNumber") }}</b>
@@ -133,7 +137,60 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    ...
+                    <div class="row">
+                        <h3 style="color: #c00">Preisvorschlag</h3>
+                    </div>
+                    <div class="row">
+                        <p>Fragen Sie unverbindlich Ihren persönlichen Vorteilspreis an!
+                            Mit diesem Formular können Sie uns Ihren persönlichen Wunschpreis kostenlos und unverbindlich vorschlagen.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <form>
+                            <div class="form-group row">
+                                <label for="articlenumber" class="col-sm-2 col-form-label">Artikelnummer</label>
+                                <div class="col-sm-10">
+                                    <input type="text" readonly class="form-control-plaintext" id="articlenumber" value="">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="articleid" class="col-sm-2 col-form-label">Artikel ID</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="articleid" placeholder="Artikel ID">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="price" class="col-sm-2 col-form-label">Preis</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="articleid" placeholder="Preis">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="yourprice" class="col-sm-2 col-form-label">Ihr Preisvorschlag</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="yourprice" placeholder="Ihr Preisvorschlag">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name" class="col-sm-2 col-form-label">Vor- und Nachname</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name" placeholder="Vor- und Nachname">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-2 col-form-label">E-Mail</label>
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="telefonnumber" class="col-sm-2 col-form-label">Telefonnummer</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="telefonnumber" placeholder="Telefonnummer">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
