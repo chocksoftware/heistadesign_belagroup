@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <!-- ITEM DESCRIPTION -->
-                <div class="col-md-4  m-t-1" v-stick-in-parent>
+                <div class="col-md-4 offset-md-1 m-y-3" v-stick-in-parent>
                     {% if ('item.shortDescription' in itemData or 'all' in itemData)%}
                         <p class="single-description" v-if="currentVariation.texts.shortDescription !== ''" v-html="currentVariation.texts.shortDescription"></p>
                     {% endif %}
@@ -38,7 +38,7 @@
                 </div>
 
                 <!-- BUYING SECTION -->
-                <div class="col-md-4 m-y-3">
+                <div class="col-md-3 m-y-3">
                     
                     <!-- Variation -->
                     <div class="row m-b-1" v-if="variations.length > 0">
