@@ -41,6 +41,11 @@ class HeistaDesignServiceProvider extends ServiceProvider
             }
         }, 0);
 
+        $eventDispatcher->listen('IO.init.templates', function(Partial $partial)
+        {     
+           $partial->set('footer', 'HeistaDesign::content.ThemeFooter');
+        }, 0);
+
         return false;
     }
 }
