@@ -1,36 +1,38 @@
-{% set companyLogo  = config("Ceres.header.company_logo") %}
-{% set companyName  = trans("Ceres::Template.headerCompanyName") %}
-{% set useMegaMenu  = config("Ceres.header.megamenu_levels") > 1 %}
-{% set showHeaderNavBar = config("Ceres.header.show_navbars") %}
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{{ component( "Ceres::Customer.Components.UserLoginHandler" ) }}
+{{ component( "Ceres::PageDesign.Components.ShippingCountrySelect" ) }}
+{{ component( "Ceres::PageDesign.Components.MobileNavigation" ) }}
+{{ component( "Ceres::ItemList.Components.ItemSearch" ) }}
+{{ component( "Ceres::WishList.Components.WishListCount" ) }}
+{{ component( "Ceres::Basket.Components.BasketPreviewHover" ) }}
+
+{% set lang = services.sessionStorage.getLang() %}
+{% set enabledRoutes = config("IO.routing.enabled_routes") | split(', ') %}
+{% set activeCurrencies = config("Ceres.currency.available_currencies") | split(', ') %}
+{% set enableCurrencySelect = config("Ceres.currency.enable_selection") == "true" and activeCurrencies | length > 0 %}
+{% set currencyFormat = config("Ceres.currency.format") %}
+{% set currencyFormatSelect = config("Ceres.currency.format_selection") %}
 
 
-<nav class="navbar megamenu" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.76), rgba(0,0,0,0.89)), url(https://www.zeitlounge.com/layout/zeitlounge2016/body-bgd.jpg);box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);background-position: right;">
-    <div class="container-max">
-        <div class="row">
-            <div class="brand-wrapper" {% if showHeaderNavBar == "side" %}style="position: relative"{% endif %}>
-                <a class="navbar-brand pull-lg-left" href="{{ homepageURL }}">
-                    {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
-                        <img alt="{{ companyName }}" src="{{ companyLogo }}" class="img-fluid" crossorigin="anonymous" />
-                    {% else %}
-                        <img alt="{{ companyName }}" src="{{ plugin_path('Ceres') }}/{{ companyLogo }}" class="img-fluid" crossorigin="anonymous" />
-                    {% endif %}
-                </a>
+{% set headerContainer = LayoutContainer.show("Ceres::Header") | trim %}
+{% if headerContainer is empty %}
+    {% include "Ceres::PageDesign.Partials.Header.DefaultHeader" %}
+{% else %}
+<header id="page-header" class="pos-f-t">
+    {{ headerContainer | raw }}
+</header>
+{% endif %}
 
-                <button id="btnMainMenuToggler" v-open-mobile-navigation class="navbar-toggler hidden-lg-up" type="button">
-                    &#9776;
-                </button>
-            </div>
-
-            <div id="mainNavbarCollapsable">
-                <ul class="breadcrumb">
-                    <li class="btnClose"></li>
-                </ul>
-                {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
-                    {# includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') #}
-                    {% include "Ceres::PageDesign.Partials.Header.NavigationList" %}
-                {% endif %}
-            </div>
-
-        </div>
-    </div>
-</nav>
+<div>
+    {% if category.linklist == "Y" %}
+        {% set initialCategory = { id: category.id } %}
+    {% else %}
+        {% set initialCategory = category %}
+    {% endif %}
+    <mobile-navigation
+            :navigation-tree-data="{{ categories | json_encode }}"
+            :initial-category="{{ initialCategory | json_encode }}"
+            template="#vue-mobile-navigation">
+    </mobile-navigation>
+</div>
