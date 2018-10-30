@@ -45,7 +45,7 @@
                            aria-label="toggle search"
                            data-toggle="collapse"
                            href="#searchBox"
-                           aria-expanded="true"
+                           aria-expanded="false"
                            aria-controls="searchBox"
                            data-parent="#controlsList">
                             <span class="anicon-search-item" aria-hidden="true"></span>
@@ -93,9 +93,9 @@
 
 <div class="container-max page-header">
     <div class="row">
-        <div id="searchBox" class="cmp cmp-search-box collapse">
-            <item-search template="#vue-item-search"></item-search>
-        </div>
+        
+        <item-search template="#vue-item-search"></item-search>
+        
 
         {% if enableCurrencySelect == "true" %}
             <div id="currencySelect" class="cmp cmp-currency-select collapse">
