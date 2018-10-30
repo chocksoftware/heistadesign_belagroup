@@ -39,7 +39,7 @@
                             </a>
                         </li>
                     {% endif %}
-                    <h1>Test</h1>
+                    <h1>Test1</h1>
                     <li class="list-inline-item control-search">
                         <a class="anicon anicon-search-xcross"
                            aria-label="toggle search"
@@ -81,7 +81,7 @@
                 </ul>
             </div>
         </div>
-        {% include "Ceres::PageDesign.Partials.Header.Navigation" %}
+        {% include "HeistaDesign::content.Navigation" %}
     </div>
 </header>
 
@@ -94,9 +94,6 @@
 <div class="container-max page-header">
     <div class="row">
         
-        <item-search template="#vue-item-search"></item-search>
-        
-
         {% if enableCurrencySelect == "true" %}
             <div id="currencySelect" class="cmp cmp-currency-select collapse">
                 <div class="container-max">
