@@ -47,6 +47,14 @@ class HeistaDesignServiceProvider extends ServiceProvider
             
         }, 0);
 
+        $eventDispatcher->listen('IO.Component.Import', function (ComponentContainer $container)
+        {
+            if ($container->getOriginComponentTemplate()=='Ceres::ItemList.Components.ItemSearch')
+            {
+                $container->setNewComponentTemplate('HeistaDesign::content.ItemSearch');
+            }
+        }, self::PRIORITY);
+
        
 
         return false;
