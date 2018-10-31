@@ -53,7 +53,7 @@ class HeistaDesignServiceProvider extends ServiceProvider
             {
                 $container->setNewComponentTemplate('HeistaDesign::content.ItemSearch');
             }
-        }, self::PRIORITY);
+        }, 0);
 
        
 
