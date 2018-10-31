@@ -27,12 +27,14 @@
                 </ul>
 
                 
-                <item-search template="#vue-item-search"></item-search>
-        
                 {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory() %}
                     {# includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') #}
                     {% include "Ceres::PageDesign.Partials.Header.NavigationList" %}
                 {% endif %}
+
+                <form class="form-inline my-2 my-lg-0">
+                    <item-search template="#vue-item-search"></item-search>
+                </form>
             </div>
 
         </div>
