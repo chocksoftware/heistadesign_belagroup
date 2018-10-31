@@ -40,7 +40,7 @@
                         </a>
                     </li>
                     {% endif %}
-                    <h1>Test1</h1>
+                    
                     <li class="list-inline-item control-search">
                         <a class="anicon anicon-search-xcross" aria-label="toggle search" data-toggle="collapse" href="#searchBox"
                             aria-expanded="false" aria-controls="searchBox" data-parent="#controlsList">
@@ -99,6 +99,11 @@
                             type="button">
                             &#9776;
                         </button>
+
+                        <div id="searchBox" class="cmp cmp-search-box collapse">
+                            <item-search template="#vue-item-search"></item-search>
+                        </div>
+
                     </div>
 
 
@@ -109,7 +114,7 @@
                         </ul>
                         {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not
                         services.template.isCategory() %}
-                        { includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') }
+                        {% includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') %}
                        
                         {% endif %}
                     </div>
