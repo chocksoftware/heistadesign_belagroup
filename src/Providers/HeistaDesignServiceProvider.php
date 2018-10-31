@@ -41,6 +41,12 @@ class HeistaDesignServiceProvider extends ServiceProvider
             }
         }, 0);
 
+        $eventDispatcher->listen('IO.tpl.category.item', function (TemplateContainer $container)
+        {
+            $container->setTemplate('HeistaDesign::content.CategoryItem');
+            
+        }, 0);
+
        
 
         return false;
