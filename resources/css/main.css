@@ -21,3 +21,104 @@ nav.navbar.megamenu #mainNavbarCollapsable ul.mainmenu > li {
     margin-top: 16px;
     text-transform: uppercase;
 }
+
+/*
+*
+* Foooter
+*
+*/
+
+footer .row {
+    background-color: #282828;
+    color: fff;
+  }
+  
+  footer .row .container #footer-benefits {
+    padding-bottom: 50px;
+    padding-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  
+  footer .row .container #footer-benefits #footer-main-benefits {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  footer .row .container #footer-benefits #footer-main-benefits li {
+    display: block;
+    float: left;
+    margin-left: 39px;
+  }
+  
+  footer .row .container #footer-benefits #footer-main-benefits li::before {
+    background: url(https://www.zeitlounge.com/layout/zeitlounge2016/tick-large.png);
+    content: '';
+    display: inline-block;
+    height: 27px;
+    position: relative;
+    top: 2px;
+    width: 24px;
+  }
+  
+  footer .row .container #footer-benefits #footer-main-benefits li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 26px;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits {
+    background-color: #3a3a3a;
+    margin-top: 60px;
+    padding: 35px 50px;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits #footer-other-benefits-long {
+    list-style-type: none;
+    float: right;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits #footer-other-benefits-long li {
+    margin: 20px 0;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits #footer-other-benefits-long li:before {
+    color: #cc0000;
+    content: "•";
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits #footer-other-benefits-long li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits #footer-other-benefits-short {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits #footer-other-benefits-short li {
+    margin: 20px 0;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits #footer-other-benefits-short li:before {
+    color: #cc0000;
+    content: "•";
+    margin-right: 5px;
+    position: relative;
+    top: 2px;
+  }
+  
+  footer .row .container #footer-benefits #footer-other-benefits #footer-other-benefits-short li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+  }
