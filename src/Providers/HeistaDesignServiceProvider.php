@@ -24,6 +24,11 @@ class HeistaDesignServiceProvider extends ServiceProvider
 	 */
 	public function boot(Twig $twig, Dispatcher $eventDispatcher)
     {
+
+        $eventDispatcher->listen('IO.Resources.Import', function (ResourceContainer $container) {
+            $container->addStyleTemplate('HeistaDesign::includeCSS');
+        }, 99);
+        
         $eventDispatcher->listen('IO.init.templates', function(Partial $partial)
         {
            $partial->set('header', 'HeistaDesign::content.Header');
