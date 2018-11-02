@@ -8,6 +8,6 @@ class HeistaDesignContainer
 {
     public function call(Twig $twig):string
     {
-        return $twig->render('HeistaDesign::includeCss');
+        return $twig->render('HeistaDesign::includeCSS');
     }
 }
