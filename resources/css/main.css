@@ -1,14 +1,14 @@
 @charset "UTF-8";
-body {
+body #page-body {
   background-color: #fff;
 }
 
-body p {
+body #page-body p {
   color: #000;
   line-height: 1.8;
 }
 
-body a {
+body #page-body a {
   color: #000;
   border-bottom: 1px dotted #808080;
   text-decoration: none;
