@@ -159,4 +159,14 @@ body a {
   text-decoration: none;
   color: #fff;
 }
+
+.footer .footer-content #footer-payment-logos {
+  margin-top: 50px;
+}
+
+.footer .footer-content #footer-payment-logos li {
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 /*# sourceMappingURL=styles.css.map */
