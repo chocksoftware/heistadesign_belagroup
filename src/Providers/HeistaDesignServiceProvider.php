@@ -34,9 +34,7 @@ class HeistaDesignServiceProvider extends ServiceProvider
         {
            $partial->set('header', 'HeistaDesign::content.Header');
            $partial->set('footer', 'HeistaDesign::content.ThemeFooter');
-
-           
-          
+     
         }, 0);
 
         $eventDispatcher->listen('IO.Component.Import', function (ComponentContainer $container)
