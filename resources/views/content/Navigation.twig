@@ -4,11 +4,11 @@
 {% set companyName = trans("Ceres::Template.headerCompanyName") %}
 {% set useMegaMenu = config("Ceres.header.megamenu_levels") > 1 %}
 
-<nav class="navbar megamenu" style="background: url(https://www.zeitlounge.com/layout/zeitlounge2016/body-bgd.jpg);height: 93px;">
-    <div class="overlay" style="position: relative;width: 100%;height: 100%;background-color: #000000b5;">
+<nav class="navbar megamenu">
+    <div class="overlay">
         <div class="container-max">
             <div class="row">
-                <div class="brand-wrapper" {% if showHeaderNavBar=="side" %}style="position: relative" {% endif %}>
+                <div class="brand-wrapper" {% if showHeaderNavBar=="side" %} {% endif %}>
                     <a class="navbar-brand pull-lg-left" href="{{ homepageURL }}">
                         {% if ('http' in companyLogo) or ('layout/' in companyLogo) %}
                         <img alt="{{ companyName }}" src="{{ companyLogo }}" class="img-fluid" crossorigin="anonymous" />
