@@ -1,5 +1,5 @@
 @charset "UTF-8";
-body {
+body #page-body {
   background-color: #fff;
 }
 
@@ -22,6 +22,14 @@ body .box-row:first {
   margin-top: 48px;
 }
 
+body .box-row:last {
+  margin-bottom: 50px;
+}
+
+body .box-row .box .box-home {
+  background-color: #fff;
+}
+
 body .box-row .box .box-home a {
   width: 100%;
   height: 100%;
@@ -36,10 +44,13 @@ body .box-row .box .box-home a img {
 body .box-row .box .box-home .box-footer {
   border: 1px solid #000;
   text-align: center;
+  background-color: #fff;
 }
 
 body .box-row .box .box-home .box-footer img {
   vertical-align: middle;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer {
