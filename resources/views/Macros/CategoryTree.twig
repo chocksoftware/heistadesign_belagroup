@@ -1,35 +1,33 @@
-{% macro get_children(category, currentScopeUrl, level, megaMenuLevels, maxItems) %}
-    {% set megaMenuLevels = megaMenuLevels | default(1) %}
-    {% set maxItems = maxItems | default({"1": 30, "2": 3, "3": 2}) %}
+{% macro get_children(category, currentScopeUrl, level) %}
+    {% set megaMenuLevels = not config('Ceres.header.megamenu_levels') ? 2 : config('Ceres.header.megamenu_levels') %}
+    {% set maxitems = { "1": config('Ceres.header.megamenu_items_stage_1'), "2": config('Ceres.header.megamenu_items_stage_2') ,"3": config('Ceres.header.megamenu_items_stage_3')} %}
     {% import _self as childlist %}
     {% set counter = 0 %}
-    <!-- {{ megaMenuLevels | json_encode }} -->
-    <!-- {{ maxItems | json_encode }} -->
     {% if level < megaMenuLevels %}
-        {% for child in category.children if counter < maxItems[level] %}
+        {% for child in category.children if counter < maxitems[level] %}
             {% if (child.details | length > 0) %}
                 <li class="level{{ level }}">
                     {% set newScope = currentScopeUrl ~ "/" ~ child.details[0].nameUrl %}
-                    <a href="{{ newScope }}{{ urls.trailingSlashSuffix }}" >{{ child.details[0].name }}</a>
+                    <a href="{{ newScope }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
                     {% if child.children %}
                         {% if level == 1 %}<ul>{% endif %}
-                        {{ childlist.get_children(child, newScope, level + 1, megaMenuLevels, maxItems) }}
+                        {{ childlist.get_children(child, newScope, level + 1) }}
                         {% if level == 1 %}</ul>{% endif %}
                     {% endif %}
                 </li>
                 {% set counter = counter + 1 %}
-                {% if counter == maxItems[level]%}
-                    <li class="level{{ level }} bt-more"><a href="{{ currentScopeUrl }}">{{ trans("Ceres::Template.itemShowMore") }}...</a></li>
+                {% if counter == maxitems[level]%}
+                    <li class="level{{ level }} bt-more"><a href="{{ currentScopeUrl }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">{{ trans("Ceres::Template.itemShowMore") }}...</a></li>
                 {% endif %}
             {% endif %}
         {% endfor %}
     {% endif %}
 {% endmacro %}
 
-{% macro get_nav_bar(categories, currentScopeUrl, megaMenuLevels, maxItemsPerStage) %}
+{% macro get_nav_bar(categories, currentScopeUrl) %}
     {% import _self as navbar %}
     {% set counter = 0 %}
-    {% set megaMenuLevels = megaMenuLevels | default(1) %}
+    {% set megaMenuLevels = not config('Ceres.header.megamenu_levels') ? 2 : config('Ceres.header.megamenu_levels') %}
 
     {% for category in categories %}
 
@@ -48,7 +46,7 @@
             {% if category.children and translatedChildren > 0 %}
 
                 <li class="ddown" v-hover-mega-menu>
-                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" >{{ category.details[0].name }}</a>
+                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">{{ category.details[0].name }}</a>
 
                     <span class="hidden-lg-up nav-direction" data-toggle="collapse" href="#navDropdown{{ counter }}" aria-expanded="false">
                         <i class="fa fa-caret-down" aria-hidden="true"></i>
@@ -56,16 +54,16 @@
 
                     <ul data-level="1" id="navDropdown{{ counter }}" class="collapse">
                         {% set counter = counter + 1 %}
-                        {% if megaMenuLevels == 1 %}
+                        {% if megaMenuLevels == "1" %}
                             {% for child in category.children %}
                                 {% if child.details | length > 0 %}
                                     <li>
-                                        <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}">{{ child.details[0].name }}</a>
+                                        <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
                                     </li>
                                 {% endif %}
                             {% endfor %}
                         {% else %}
-                            {{ navbar.get_children(category, currentScopeUrl, 1, megaMenuLevels, maxItemsPerStage) }}
+                            {{ navbar.get_children(category, currentScopeUrl, 1) }}
                         {% endif %}
                     </ul>
                 </li>
@@ -73,7 +71,7 @@
             {% else %}
 
                 <li>
-                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" >{{ category.details[0].name }}</a>
+                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}', alwaysOpen: true }">{{ category.details[0].name }}</a>
                 </li>
 
             {% endif %}
@@ -94,7 +92,7 @@
         {% if category.details[0] %}
             <ul>
                 <li class="nav-item{% for breadcrumb in breadcrumbs %}{% if category.id == breadcrumb.id %} active{% endif %}{% endfor %}" v-update-sidenav-selection="$store.getters.breadcrumbs" data-category-id="{{ category.id }}">
-                    <a href="{{ urlNow }}{{ urls.trailingSlashSuffix }}" class="nav-link" >{{ category.details[0].name }}</a>
+                    <a href="{{ urlNow }}{{ urls.trailingSlashSuffix }}" class="nav-link" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}', alwaysOpen: true }">{{ category.details[0].name }}</a>
                     {% if category.children is not empty %}
                         {{ sidemenu.get_sidemenu(breadcrumbs, category.children, urlNow) }}
                     {% endif %}
