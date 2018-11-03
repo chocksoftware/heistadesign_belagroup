@@ -1,4 +1,34 @@
 @charset "UTF-8";
+nav {
+  background: url(https://www.zeitlounge.com/layout/zeitlounge2016/body-bgd.jpg);
+  height: 93px;
+}
+
+nav .overlay {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000000b5;
+}
+
+nav #mainNavbarCollapsable .mainmenu {
+  width: 50%;
+  margin-top: 14px;
+  margin-right: 118px;
+}
+
+nav #mainNavbarCollapsable .mainmenu li a {
+  color: #fff;
+}
+
+nav #mainNavbarCollapsable .mainmenu li span {
+  color: #fff;
+}
+
+nav #mainNavbarCollapsable .mainmenu li ul li {
+  padding: 0px 10px;
+}
+
 body #page-body {
   background-color: #fff;
 }
