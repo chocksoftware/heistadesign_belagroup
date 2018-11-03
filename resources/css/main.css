@@ -1,17 +1,45 @@
 @charset "UTF-8";
-body #page-body {
+body {
   background-color: #fff;
 }
 
-body #page-body p {
+body p {
   color: #000;
   line-height: 1.8;
 }
 
-body #page-body a {
+body p a {
   color: #000;
   border-bottom: 1px dotted #808080;
   text-decoration: none;
+}
+
+body .box-row {
+  margin-top: 24px;
+}
+
+body .box-row:first {
+  margin-top: 48px;
+}
+
+body .box-row .box .box-home a {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+
+body .box-row .box .box-home a img {
+  width: 100%;
+  height: 100%;
+}
+
+body .box-row .box .box-home .box-footer {
+  border: 1px solid #000;
+  text-align: center;
+}
+
+body .box-row .box .box-home .box-footer img {
+  vertical-align: middle;
 }
 
 .footer {
