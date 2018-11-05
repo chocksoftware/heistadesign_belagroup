@@ -6,8 +6,8 @@
     <!-- {{ megaMenuLevels | json_encode }} -->
     <!-- {{ maxItems | json_encode }} -->
     <script>
-    console.log({{megaMenuLevels}});
-    console.log({{maxItems}});
+    console.log("test: " + {{megaMenuLevels}});
+    console.log("test: " + {{maxItems}});
     </script>
     {% if level < megaMenuLevels %}
         {% for child in category.children if counter < maxItems[level] %}
