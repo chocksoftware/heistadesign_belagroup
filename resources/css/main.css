@@ -83,6 +83,49 @@ body .box-row .box .box-home .box-footer img {
   margin-right: auto;
 }
 
+body .single {
+  background-color: #fff;
+}
+
+body .single .technical-details h2 {
+  color: #CB1003;
+}
+
+body .single .technical-details #item_description .features {
+  max-width: none;
+}
+
+body .single .technical-details #item_description .features li {
+  color: #c00;
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+
+body .single .technical-details #item_description .features li::before {
+  content: "f013";
+  font-family: FontAwesome;
+  margin-right: 1ex;
+}
+
+body .single .technical-details #item_description .features li dl {
+  margin-top: 1em;
+}
+
+body .single .technical-details #item_description .features li dl dt {
+  color: #666;
+  font-size: 10px;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+body .single .technical-details #item_description .features li dl dd {
+  border-bottom: 1px solid #e6e6e6;
+  color: #000;
+  font-size: 13px;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+}
+
 .footer {
   background-color: #282828;
 }
