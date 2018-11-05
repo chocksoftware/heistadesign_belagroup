@@ -1,6 +1,6 @@
 {% macro get_children(category, currentScopeUrl, level) %}
     {% set megaMenuLevels = 3 %}
-    {% set maxitems = { "1": 30, "2": 10 ,"3": 10} %}
+    {% set maxitems = { "1": 5, "2": 10 ,"3": 10} %}
     {% import _self as childlist %}
     {% set counter = 0 %}
     {% if level < megaMenuLevels %}
