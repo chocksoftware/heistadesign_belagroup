@@ -8,7 +8,7 @@
 
 
 
-    {% if category.children and translatedChildren > 0 %}
+    {% if category.children %}
     <!-- Dropdown -->
     <li class="ddown" v-hover-mega-menu>
         <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">{{
