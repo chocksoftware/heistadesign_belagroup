@@ -4,9 +4,9 @@
     {% for category in categories %}
         {% set currentScopeUrl = "" %}
         
-        {% if category.details | length > 0 %}
+            {% if category.details | length > 0 %}
 
-            {% if category.children %}
+            
                 <!-- Dropdown -->
                 <li class="ddown" v-hover-mega-menu>
                     <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">
@@ -57,7 +57,7 @@
 
             {% endif %}
     
-        {% endif %}
+        
 
     {% endfor %}
 </ul>
