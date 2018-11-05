@@ -29,7 +29,7 @@
 {% macro get_nav_bar(categories, currentScopeUrl, megaMenuLevels, maxItemsPerStage) %}
     {% import _self as navbar %}
     {% set counter = 0 %}
-    {% set megaMenuLevels = megaMenuLevels | default(1) %}
+    {% set megaMenuLevels = 3 %}
 
     {% for category in categories %}
 
