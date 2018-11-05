@@ -87,6 +87,28 @@ body .single {
   background-color: #fff;
 }
 
+body .single .single-description {
+  line-height: 1;
+}
+
+body .single .single-description #articleDesc {
+  color: #000;
+  font-size: 13px;
+  -webkit-columns: 2;
+          columns: 2;
+}
+
+body .single .single-description #articleDesc p strong {
+  color: #666;
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 16px;
+  text-transform: uppercase;
+  display: block;
+}
+
 body .single .technical-details h2 {
   color: #c00;
   font-weight: 300;
@@ -132,25 +154,6 @@ body .single .technical-details #item_description .features li dl dd {
   font-size: 13px;
   margin-bottom: 1em;
   padding-bottom: 1em;
-}
-
-body .single .technical-details .single-description {
-  line-height: 1;
-}
-
-body .single .technical-details .single-description #articleDesc {
-  color: #000;
-  font-size: 13px;
-}
-
-body .single .technical-details .single-description #articleDesc p strong {
-  color: #666;
-  display: block;
-  font-size: 10px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  margin-top: 16px;
-  text-transform: uppercase;
 }
 
 .footer {
