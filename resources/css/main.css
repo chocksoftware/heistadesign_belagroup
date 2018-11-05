@@ -134,6 +134,25 @@ body .single .technical-details #item_description .features li dl dd {
   padding-bottom: 1em;
 }
 
+body .single .technical-details .single-description {
+  line-height: 1;
+}
+
+body .single .technical-details .single-description #articleDesc {
+  color: #000;
+  font-size: 13px;
+}
+
+body .single .technical-details .single-description #articleDesc p strong {
+  color: #666;
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 16px;
+  text-transform: uppercase;
+}
+
 .footer {
   background-color: #282828;
 }
