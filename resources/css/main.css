@@ -87,6 +87,10 @@ body .single {
   background-color: #fff;
 }
 
+body .single hr {
+  border-top: 3px double #999;
+}
+
 body .single .single-description {
   line-height: 1;
 }
@@ -94,6 +98,10 @@ body .single .single-description {
 body .single .single-description #articleDesc {
   color: #000;
   font-size: 13px;
+}
+
+body .single .single-description #articleDesc p {
+  line-height: 1;
 }
 
 body .single .single-description #articleDesc p strong {
