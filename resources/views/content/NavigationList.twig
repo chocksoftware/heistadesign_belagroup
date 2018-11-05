@@ -1,14 +1,47 @@
 {% import "Ceres::Category.Macros.CategoryTree" as Tree %}
 
 <ul class="mainmenu pull-lg-right">
-    {{ Tree.get_nav_bar(
-        categories,
-        "",
-        ceresConfig.header.megamenuLevels,
-        {
-            "1": ceresConfig.header.megamenuItemsStage1,
-            "2": ceresConfig.header.megamenuItemsStage2,
-            "3": ceresConfig.header.megamenuItemsStage3
-        }
-    ) }}
+
+    {% for category in categories %}
+
+    {% if category.details | length > 0 %}
+
+
+
+    {% if category.children and translatedChildren > 0 %}
+    <!-- Dropdown -->
+    <li class="ddown" v-hover-mega-menu>
+        <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">{{
+            category.details[0].name }}</a>
+
+        <span class="hidden-lg-up nav-direction" data-toggle="collapse" href="#navDropdown{{ counter }}" aria-expanded="false">
+            <i class="fa fa-caret-down" aria-hidden="true"></i>
+        </span>
+
+        <ul data-level="1" id="navDropdown{{ counter }}" class="collapse">
+            
+           
+            {% for child in category.children %}
+                {% if child.details | length > 0 %}
+                <li>
+                    <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}"
+                        v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+            
+        </ul>
+    </li>
+
+    {% else %}
+    <!-- Kein Dropdown -->
+    <li>
+        <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}', alwaysOpen: true }">{{
+            category.details[0].name }}</a>
+    </li>
+
+    {% endif %}
+    {% endif %}
+
+    {% endfor %}
 </ul>
