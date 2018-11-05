@@ -3,10 +3,8 @@
 <ul class="mainmenu pull-lg-right">
 
     {% for category in categories %}
-
+    {% set currentScopeUrl = "" %}
     {% if category.details | length > 0 %}
-
-    {{ category.children}}
 
     {% if category.children %}
     <!-- Dropdown -->
@@ -20,16 +18,44 @@
 
         <ul data-level="1" id="navDropdown{{ counter }}" class="collapse">
             
-           
-            {% for child in category.children %}
-                {% if child.details | length > 0 %}
-                <li>
-                    <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}"
-                        v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
-                </li>
+            {% if megaMenuLevels == "1" %}
+                {% for child in category.children %}
+                    {% if child.details | length > 0 %}
+                        <li>
+                            <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            {% else %}
+                <!-- Second child -->
+                {% if child1.details | length > 0%}
+                    {% for child1 in category.children(0, 20) %}
+                        <li class="level1" style="">
+                            <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
+                        </li>
+                        {% if child2.details | length > 0 %}
+                            {% for child2 in child1.children(0, 10) %}
+                                <li class="level2" style="">
+                                </li>
+                                {% if child3.details | length > 0 %}
+                                    {% for child3 in child2.children(0, 10) %}
+                                    <li class="level3" style="">
+                                    </li>
+                                    {% endfor %}
+
+                                {% endif %}
+
+                            {% endfor %}
+
+                        {% endif %}
+
+                    {% endfor %}
+
                 {% endif %}
-            {% endfor %}
-            
+
+                
+                
+            {% endif %}
         </ul>
     </li>
 
