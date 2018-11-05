@@ -120,38 +120,27 @@
             </div>
             
             <!-- Middle Seperator -->
-            <div class="row">
+            <div class="row ">
                 <div class="col-md-12">
                     <hr>
                 </div>         
             </div>
-            {% if 'item.technical_data' in itemData or 'all' in itemData %}
-            <div class="row">
+            {% if 'item.description' in itemData or 'all' in itemData %}
+            <div class="row technical-details">
                 <div class="col-md-12">
-                
-                   
-                    
-                       
-                        
-                        
-                           
-                            <div class="m-y-2" v-html="currentVariation.texts.technicalData">
-                            </div>
-                            
-                       
-                        
-                        
-                    
-               
+                    <h2>Technische Details</h2>
+                    <div class="m-y-2" v-html="currentVariation.texts.description">
+                    </div>
+ 
                 </div>
             </div>
              {% endif %}
-             
+
             <slot name="ItemListContainer"></slot>
             <slot name="FeedbackContainer"></slot>
         </div>
 
-        <<!-- Modal -->
+        <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
