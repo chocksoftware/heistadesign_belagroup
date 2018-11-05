@@ -6,7 +6,7 @@
     {% if level < megaMenuLevels %}
         {% for child in category.children if counter < maxitems[level] %}
             {% if (child.details | length > 0) %}
-                <li class="level{{ level }}">
+                <li class="level{{ level }}" style="font-size: 20px;">
                     {% set newScope = currentScopeUrl ~ "/" ~ child.details[0].nameUrl %}
                     <a href="{{ newScope }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
                     {% if child.children %}

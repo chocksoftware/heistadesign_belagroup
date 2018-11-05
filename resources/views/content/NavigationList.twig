@@ -1,78 +1,14 @@
-
+{% import "Ceres::Category.Macros.CategoryTree" as Tree %}
 
 <ul class="mainmenu pull-lg-right">
-    {% import _self as navbar %}
-    {% set counter = 0 %}
-    {% set megaMenuLevels = 3 %}
-    {% set maxitems = { "1": 30, "2": 10 ,"3": 10} %}
-
-    
-
-    {% for category in categories %}
-
-        {% if category.details | length > 0 %}
-
-            {% if urls.includeLanguage %}
-                {% set currentScopeUrl = "/" ~ category.details[0].lang ~  "/" ~ category.details[0].nameUrl %}
-            {% else %}
-                {% set currentScopeUrl = "/" ~ category.details[0].nameUrl %}
-            {% endif %}
-            {% set translatedChildren = 0 %}
-            {% for children in category.children if children.details[0] %}
-                {% set translatedChildren = translatedChildren + 1 %}
-            {% endfor %}
-
-            {% if category.children and translatedChildren > 0 %}
-
-                <li class="ddown" v-hover-mega-menu>
-                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">{{ category.details[0].name }}</a>
-
-                    <span class="hidden-lg-up nav-direction" data-toggle="collapse" href="#navDropdown{{ counter }}" aria-expanded="false">
-                        <i class="fa fa-caret-down" aria-hidden="true"></i>
-                    </span>
-
-                    <ul data-level="1" id="navDropdown{{ counter }}" class="collapse">
-                        {% set counter = counter + 1 %}
-                        {% if megaMenuLevels == "1" %}
-                            {% for child in category.children %}
-                                {% if child.details | length > 0 %}
-                                    <li>
-                                        <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        {% else %}
-                            <h1>Test2</h1>
-                            {% if level < megaMenuLevels %}
-                                {% for child in category.children if counter < maxitems[level] %}
-                                    {% if (child.details | length > 0) %}
-                                        <li class="level{{ level }}">
-                                            {% set newScope = currentScopeUrl ~ "/" ~ child.details[0].nameUrl %}
-                                            <a href="{{ newScope }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
-                                            {% if child.children %}
-                                                {% if level == 1 %}<ul>{% endif %}
-                                                {{ childlist.get_children(child, newScope, level + 1) }}
-                                                {% if level == 1 %}</ul>{% endif %}
-                                            {% endif %}
-                                        </li>
-                                        {% set counter = counter + 1 %}
-                                        {% if counter == maxitems[level]%}
-                                            <li class="level{{ level }} bt-more"><a href="{{ currentScopeUrl }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">{{ trans("Ceres::Template.itemShowMore") }}...</a></li>
-                                        {% endif %}
-                                    {% endif %}
-                                {% endfor %}
-                            {% endif %}
-                        {% endif %}
-                    </ul>
-                </li>
-
-            {% else %}
-
-                <li>
-                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}', alwaysOpen: true }">{{ category.details[0].name }}</a>
-                </li>
-
-            {% endif %}
-        {% endif %}
-    {% endfor %}
+    {{ Tree.get_nav_bar(
+        categories,
+        "",
+        ceresConfig.header.megamenuLevels,
+        {
+            "1": ceresConfig.header.megamenuItemsStage1,
+            "2": ceresConfig.header.megamenuItemsStage2,
+            "3": ceresConfig.header.megamenuItemsStage3
+        }
+    ) }}
 </ul>
