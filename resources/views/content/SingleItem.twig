@@ -125,27 +125,28 @@
                     <hr>
                 </div>         
             </div>
-
+            {% if 'item.technical_data' in itemData or 'all' in itemData %}
             <div class="row">
                 <div class="col-md-12">
                 
                    
                     
                        
-                        {% endif %}
-                        {% if 'item.technical_data' in itemData or 'all' in itemData %}
+                        
+                        
                            
                             <div class="m-y-2" v-html="currentVariation.texts.technicalData">
                             </div>
                             
-                        {% endif %}
+                       
                         
                         
                     
                
                 </div>
             </div>
-            
+             {% endif %}
+             
             <slot name="ItemListContainer"></slot>
             <slot name="FeedbackContainer"></slot>
         </div>
