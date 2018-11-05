@@ -94,9 +94,13 @@ body .single .technical-details h2 {
 }
 
 body .single .technical-details #item_description .features {
-  text-align: center;
   list-style-type: none;
   max-width: none;
+  display: inline-block;
+  margin: 0 30px;
+  max-width: 360px;
+  text-align: left;
+  vertical-align: top;
 }
 
 body .single .technical-details #item_description .features li {
@@ -106,7 +110,7 @@ body .single .technical-details #item_description .features li {
 }
 
 body .single .technical-details #item_description .features li::before {
-  content: "f013";
+  content: "\f013";
   font-family: FontAwesome;
   margin-right: 1ex;
 }
