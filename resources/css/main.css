@@ -88,10 +88,14 @@ body .single {
 }
 
 body .single .technical-details h2 {
-  color: #CB1003;
+  color: #c00;
+  font-weight: 300;
+  text-align: center;
 }
 
 body .single .technical-details #item_description .features {
+  text-align: center;
+  list-style-type: none;
   max-width: none;
 }
 
