@@ -1,73 +1,75 @@
-{% import "Ceres::Category.Macros.CategoryTree" as Tree %}
 
 <ul class="mainmenu pull-lg-right">
 
     {% for category in categories %}
-    {% set currentScopeUrl = "" %}
-    {% if category.details | length > 0 %}
+        {% set currentScopeUrl = "" %}
+        {% if category.details | length > 0 %}
 
-    {% if category.children %}
-    <!-- Dropdown -->
-    <li class="ddown" v-hover-mega-menu>
-        <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">{{
-            category.details[0].name }}</a>
+            {% if category.children %}
+                <!-- Dropdown -->
+                <li class="ddown" v-hover-mega-menu>
+                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">
+                        {{category.details[0].name }}
+                    </a>
 
-        <span class="hidden-lg-up nav-direction" data-toggle="collapse" href="#navDropdown{{ counter }}" aria-expanded="false">
-            <i class="fa fa-caret-down" aria-hidden="true"></i>
-        </span>
+                    <span class="hidden-lg-up nav-direction" data-toggle="collapse" href="#navDropdown{{ counter }}" aria-expanded="false">
+                        <i class="fa fa-caret-down" aria-hidden="true"></i>
+                    </span>
 
-        <ul data-level="1" id="navDropdown{{ counter }}" class="collapse">
-            
-            {% if megaMenuLevels == "1" %}
-                {% for child in category.children %}
-                    {% if child.details | length > 0 %}
-                        <li>
-                            <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            {% else %}
-                <!-- Second child -->
-                {% if child1.details | length > 0%}
-                    {% for child1 in category.children(0, 20) %}
-                        <li class="level1" style="">
-                            <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
-                        </li>
-                        {% if child2.details | length > 0 %}
-                            {% for child2 in child1.children(0, 10) %}
-                                <li class="level2" style="">
-                                </li>
-                                {% if child3.details | length > 0 %}
-                                    {% for child3 in child2.children(0, 10) %}
-                                    <li class="level3" style="">
+                    <ul data-level="1" id="navDropdown{{ counter }}" class="collapse">
+                        
+                        {% if megaMenuLevels == "1" %}
+                            {% for child in category.children %}
+                                {% if child.details | length > 0 %}
+                                    <li>
+                                        <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
                                     </li>
-                                    {% endfor %}
-
                                 {% endif %}
-
                             {% endfor %}
+                        {% else %}
+                            <!-- Second child -->
+                            {% if child1.details | length > 0%}
+                                {% for child1 in category.children(0, 20) %}
+                                    <li class="level1" style="">
+                                        <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
+                                    </li>
+                                    {% if child2.details | length > 0 %}
+                                        {% for child2 in child1.children(0, 10) %}
+                                            <li class="level2" style="">
+                                            </li>
+                                            {% if child3.details | length > 0 %}
+                                                {% for child3 in child2.children(0, 10) %}
+                                                <li class="level3" style="">
+                                                </li>
+                                                {% endfor %}
 
+                                            {% endif %}
+
+                                        {% endfor %}
+
+                                    {% endif %}
+
+                                {% endfor %}
+
+                            {% endif %}
+
+                            
+                            
                         {% endif %}
+                    </ul>
+                </li>
 
-                    {% endfor %}
+            {% else %}
+                <!-- Kein Dropdown -->
+                <li>
+                    <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}', alwaysOpen: true }">
+                        {{ category.details[0].name }}
+                    </a>
+                </li>
 
-                {% endif %}
-
-                
-                
             {% endif %}
-        </ul>
-    </li>
-
-    {% else %}
-    <!-- Kein Dropdown -->
-    <li>
-        <a href="{{ currentScopeUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}', alwaysOpen: true }">{{
-            category.details[0].name }}</a>
-    </li>
-
-    {% endif %}
-    {% endif %}
+    
+        {% endif %}
 
     {% endfor %}
 </ul>

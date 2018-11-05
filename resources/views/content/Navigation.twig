@@ -28,10 +28,9 @@
                         <li class="btnClose"></li>
                     </ul>
 
-                    <item-search template="#vue-item-search"></item-search>
+                    
 
-                    {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory()
-                    %}
+                    {% if showHeaderNavBar == "top" or showHeaderNavBar == "both" or not services.template.isCategory()%}
                         {# includeCached('Ceres::PageDesign.Partials.Header.NavigationList.twig') #}
                         {% include "HeistaDesign::content.NavigationList" %}
                     {% endif %}
