@@ -94,8 +94,6 @@ body .single .single-description {
 body .single .single-description #articleDesc {
   color: #000;
   font-size: 13px;
-  -webkit-columns: 2;
-          columns: 2;
 }
 
 body .single .single-description #articleDesc p strong {
@@ -123,6 +121,8 @@ body .single .technical-details #item_description .features {
   max-width: 360px;
   text-align: left;
   vertical-align: top;
+  -webkit-columns: 2;
+          columns: 2;
 }
 
 body .single .technical-details #item_description .features li {
