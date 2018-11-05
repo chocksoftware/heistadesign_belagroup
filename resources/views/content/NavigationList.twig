@@ -4,8 +4,9 @@
     {% import _self as navbar %}
     {% set counter = 0 %}
     {% set megaMenuLevels = 3 %}
+    {% set maxitems = { "1": 30, "2": 10 ,"3": 10} %}
 
-    <h1>{{megaMenuLevels}}</h1>
+    
 
     {% for category in categories %}
 
@@ -41,7 +42,26 @@
                                 {% endif %}
                             {% endfor %}
                         {% else %}
-                            <h1>Test</h1>
+                            <h1>Test2</h1>
+                            {% if level < megaMenuLevels %}
+                                {% for child in category.children if counter < maxitems[level] %}
+                                    {% if (child.details | length > 0) %}
+                                        <li class="level{{ level }}">
+                                            {% set newScope = currentScopeUrl ~ "/" ~ child.details[0].nameUrl %}
+                                            <a href="{{ newScope }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
+                                            {% if child.children %}
+                                                {% if level == 1 %}<ul>{% endif %}
+                                                {{ childlist.get_children(child, newScope, level + 1) }}
+                                                {% if level == 1 %}</ul>{% endif %}
+                                            {% endif %}
+                                        </li>
+                                        {% set counter = counter + 1 %}
+                                        {% if counter == maxitems[level]%}
+                                            <li class="level{{ level }} bt-more"><a href="{{ currentScopeUrl }}" v-render-category="{ id: {{ category.id }}, type: '{{ category.type }}' }">{{ trans("Ceres::Template.itemShowMore") }}...</a></li>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
                         {% endif %}
                     </ul>
                 </li>
