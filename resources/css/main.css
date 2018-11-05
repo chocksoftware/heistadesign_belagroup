@@ -113,12 +113,15 @@ body .single .technical-details h2 {
   text-align: center;
 }
 
+body .single .technical-details #item_description {
+  text-align: center;
+}
+
 body .single .technical-details #item_description .features {
   list-style-type: none;
   max-width: none;
   display: inline-block;
   margin: 0 30px;
-  max-width: 360px;
   text-align: left;
   vertical-align: top;
   -webkit-columns: 2;
@@ -154,6 +157,11 @@ body .single .technical-details #item_description .features li dl dd {
   font-size: 13px;
   margin-bottom: 1em;
   padding-bottom: 1em;
+}
+
+body .single .availability::before {
+  content: "\f0d1";
+  color: #fff;
 }
 
 .footer {
