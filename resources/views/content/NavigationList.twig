@@ -3,6 +3,7 @@
 
     {% for category in categories %}
         {% set currentScopeUrl = "" %}
+        
         {% if category.details | length > 0 %}
 
             {% if category.children %}
@@ -17,16 +18,7 @@
                     </span>
 
                     <ul data-level="1" id="navDropdown{{ counter }}" class="collapse">
-                        
-                        {% if megaMenuLevels == "1" %}
-                            {% for child in category.children %}
-                                {% if child.details | length > 0 %}
-                                    <li>
-                                        <a href="{{ currentScopeUrl }}/{{ child.details[0].nameUrl }}{{ urls.trailingSlashSuffix }}" v-render-category="{ id: {{ child.id }}, type: '{{ child.type }}' }">{{ child.details[0].name }}</a>
-                                    </li>
-                                {% endif %}
-                            {% endfor %}
-                        {% else %}
+                       
                             <!-- Second child -->
                             {% if child1.details | length > 0%}
                                 {% for child1 in category.children(0, 20) %}
@@ -52,10 +44,6 @@
                                 {% endfor %}
 
                             {% endif %}
-
-                            
-                            
-                        {% endif %}
                     </ul>
                 </li>
 
