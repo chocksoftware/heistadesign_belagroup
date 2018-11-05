@@ -1,5 +1,5 @@
 {% macro get_children(category, currentScopeUrl, level, megaMenuLevels, maxItems) %}
-    {% set megaMenuLevels = megaMenuLevels | default(2) %}
+    {% set megaMenuLevels = 3 %}
     {% set maxItems = maxItems | default({"1": 30, "2": 3, "3": 2}) %}
     {% import _self as childlist %}
     {% set counter = 0 %}
