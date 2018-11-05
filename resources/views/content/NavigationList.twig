@@ -5,6 +5,8 @@
     {% set counter = 0 %}
     {% set megaMenuLevels = 3 %}
 
+    <h1>{{megaMenuLevels}}</h1>
+
     {% for category in categories %}
 
         {% if category.details | length > 0 %}
