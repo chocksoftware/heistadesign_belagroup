@@ -2,44 +2,28 @@
     <div>
         <div class="container-max">
             <div class="row">
-                <item-search template="#vue-item-search"></item-search>
-                <ul id="controlsList" class="controls-list list-inline">
+                <div class="col-xs-6 col-md-6 col-lg-6">
+                    <item-search template="#vue-item-search"></item-search>
+                </div>
+                <div class="col-xs-6 col-md-6 col-lg-6">
+                    <ul class="heista-list">
 
-                    <li class="list-inline-item control-user">
-                        <user-login-handler>
-                            <a data-toggle="modal">
-                                <i class="fa fa-user" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.login") }}</span>
-                            </a>
-                            <span class="pipe"></span>
-                            <a data-toggle="modal">
-                                <i class="fa fa-user-plus" aria-hidden="true"></i>
-                                <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
-                            </a>
-                        </user-login-handler>
-                    </li>
-                    <li class="list-inline-item dropdown control-languages">
-                        <a data-toggle="collapse" href="#countrySettings" aria-expanded="false"
-                            aria-controls="countrySettings"
-                            data-parent="#controlsList">
-                            <i class="flag-icon flag-icon-{{ lang }}"></i>
-                        </a>
-                    </li>
-
-                    {% if enableCurrencySelect == "true" %}
-                        <li class="list-inline-item dropdown control-languages">
-                            <a class=""
-                                data-toggle="collapse"
-                                href="#currencySelect"
-                                aria-expanded="false"
-                                aria-controls="currencySelect"
-                                data-parent="#controlsList">
-                                <span>{{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                            </a>
+                        <li class="login">
+                            
+                                <a href="/login">
+                                    <i class="fa fa-user" aria-hidden="true"></i>
+                                    <span class="hidden-xs-down">Mein Konto</span>
+                                </a>
+                                <span class="pipe"></span>
+                                <a data-toggle="modal">
+                                    <i class="fa fa-user-plus" aria-hidden="true"></i>
+                                    <span class="hidden-xs-down">{{ trans("Ceres::Template.loginRegister") }}</span>
+                                </a>
+                            
                         </li>
-                    {% endif %}
-                    
-                    {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
+                        
+
+                        {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
                         <li class="list-inline-item control-wish-list">
                             <wish-list-count>
                                 <a>
@@ -48,30 +32,36 @@
                                 </a>
                             </wish-list-count>
                         </li>
-                    {% endif %}
-                    <li class="list-inline-item control-basket">
-                        <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
-                            {% if config("Ceres.header.basket_values") != "sum" %}
-                                <span class="badge-right" v-basket-item-quantity="this.$store.state.basket.data.itemQuantity">0</span>
-                            {% endif %}
-
-                            <i v-waiting-animation="this.$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin" class="fa fa-shopping-cart" aria-hidden="true"></i>
-                            {% if config("Ceres.header.basket_values") != "quantity" %}
-                                <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="this.$store.state.basket.data.itemSum">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                                <span class="badge" v-else v-cloak v-basket-item-sum="this.$store.state.basket.data.itemSumNet">0,00 {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
-                            {% endif %}
-                        </a>
-
-                        {% if config("Ceres.basket.preview_type") != "right" %}
-                            <basket-preview template="#vue-basket-preview-hover" :show-net-prices="{{ showNetPrices | json_encode }}"></basket-preview>
                         {% endif %}
-                    </li>
-                </ul>
+                        <li class="list-inline-item control-basket">
+                            <a v-toggle-basket-preview href="#" class="toggle-basket-preview">
+                                {% if config("Ceres.header.basket_values") != "sum" %}
+                                <span class="badge-right" v-basket-item-quantity="this.$store.state.basket.data.itemQuantity">0</span>
+                                {% endif %}
+
+                                <i v-waiting-animation="this.$store.state.basket.isBasketLoading" waiting-class="fa fa-refresh fa-spin"
+                                    class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                {% if config("Ceres.header.basket_values") != "quantity" %}
+                                <span class="badge" v-if="!$store.state.basket.showNetPrices" v-basket-item-sum="this.$store.state.basket.data.itemSum">0,00
+                                    {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                <span class="badge" v-else v-cloak v-basket-item-sum="this.$store.state.basket.data.itemSumNet">0,00
+                                    {{ services.checkout.getCurrencyData()[currencyFormat] }}</span>
+                                {% endif %}
+                            </a>
+
+                            {% if config("Ceres.basket.preview_type") != "right" %}
+                            <basket-preview template="#vue-basket-preview-hover" :show-net-prices="{{ showNetPrices | json_encode }}"></basket-preview>
+                            {% endif %}
+                        </li>
+                    </ul>
+                </div>
+
+
             </div>
         </div>
         <div class="container-max">
             <div class="row">
-                {{ LayoutContainer.show("Ceres::Header.LeftSide") }}     
+                {{ LayoutContainer.show("Ceres::Header.LeftSide") }}
             </div>
         </div>
         {% include "HeistaDesign::content.Navigation" %}
@@ -81,6 +71,5 @@
 
 <!-- breadcrumb -->
 {% if not services.template.isHome() and not services.template.isMyAccount() and not services.template.isCheckout() %}
-    {% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
+{% include "Ceres::PageDesign.Partials.Header.Breadcrumb" %}
 {% endif %}
-
