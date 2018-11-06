@@ -64,6 +64,10 @@ body #page-body {
   background-color: #fff;
 }
 
+body #page-body .page-content {
+  background-color: #fff;
+}
+
 body p {
   color: #000;
   line-height: 1.8;
