@@ -49,7 +49,10 @@
                     <!-- Item Bundle -->
                         <item-bundle :bundle-type="currentVariation.variation.bundleType" :bundle-components="currentVariation.bundleComponents"></item-bundle>
                     <!-- /Item Bundle -->
-                    <slot name="BeforePrice"></slot>
+
+                    <slot name="BeforePrice">
+                    </slot>
+                    
                     <div class="row" v-if="currentVariation.filter.isSalable && variationGroupedProperties.length">
                         <order-property-list></order-property-list>
                     </div>
@@ -81,19 +84,22 @@
                             </span>
                         </div>
                     </div>
-                    <slot name="AfterPrice"></slot>
-                    
+
                     <div class="row m-y-1">
                         <slot name="BeforeAddToBasket"></slot>
                         <add-to-basket
                                 template="#vue-add-to-basket"
                                 v-if="currentVariation.filter.isSalable"
                                 :item="$store.state.item.variation.documents[0].data"
-                                :show-quantity="false"
+                                :show-quantity="true"
                                 :missing-order-properties="variationMissingProperties"
                                 :is-variation-selected="isVariationSelected"></add-to-basket>
                         <slot name="AfterAddToBasket"></slot>
                     </div>
+
+                    <slot name="AfterPrice"></slot>
+                    
+                    
 
                     <!-- Preisanfrage -->
                     <div class="m-b-3">
