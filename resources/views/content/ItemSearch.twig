@@ -1,6 +1,6 @@
 <script type="x/template" id="vue-item-search">
     
-        <form class="form-inline pull-lg-right" style="padding: 10px;">
+        <form class="form-inline pull-lg-left" style="padding: 10px;">
             <input type="search" class="form-control mr-sm-2" v-model="currentSearchString" @input="autocomplete($event.target.value)"
                 @keyup.enter="prepareSearch()" @keyup.down="keydown()" @keyup.up="keyup()"
                 @focus="isSearchFocused = true" @blur="setIsSearchFocused(false)"
