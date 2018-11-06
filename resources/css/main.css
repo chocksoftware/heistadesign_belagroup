@@ -5,14 +5,17 @@
 
 #top-bar #right-bar ul li {
   list-style-type: none;
+  display: block;
+  float: left;
+  padding: 10px;
 }
 
 #top-bar #right-bar ul li a i {
-  color: #000;
+  color: #fff;
 }
 
 #top-bar #right-bar ul li a span {
-  color: #000;
+  color: #fff;
 }
 
 .navbar {
