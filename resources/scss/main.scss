@@ -8,9 +8,19 @@
     #left-bar{
         ul{
             li{
+                &:first{
+
+                }
+                margin: 0px;
                 display: block;
                 float: left;
                 padding: 5px;
+
+                p{
+                    font-size: .92857rem;
+                    line-height: 1.07143rem;
+                    font-weight: 700;
+                }
             }
         }
     }
