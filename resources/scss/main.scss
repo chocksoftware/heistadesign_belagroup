@@ -5,18 +5,14 @@
 }
 
 #top-bar {
-    #left-bar #heista-search input {
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        font-weight: 300;
-        font-size: 12px;
-        letter-spacing: 2px;
-        border-radius: 0;
-        border: none;
-        border-bottom: 1px solid #bbb;
-        padding: 0;
-        height: 25px;
-        float: left;
+    #left-bar{
+        ul{
+            li{
+                display: block;
+                float: left;
+                padding: 5px;
+            }
+        }
     }
 
     #right-bar {
