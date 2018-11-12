@@ -200,16 +200,19 @@ body p a:hover {
   padding-bottom: 1em;
 }
 
-.single .availability::before {
-  content: "\f0d1";
-  color: #fff;
-}
-
 .single .articlenumber b {
   color: #000;
 }
 
 .single .articlenumber span {
+  color: #000;
+}
+
+.single .articleid b {
+  color: #000;
+}
+
+.single .articleid span {
   color: #000;
 }
 

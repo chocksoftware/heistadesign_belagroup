@@ -243,12 +243,17 @@ body {
         }
     }
 
-    .availability::before {
-        content: "\f0d1";
-        color: #fff;
+    .articlenumber{
+        b{
+            color: #000;
+        }
+
+        span{
+            color: #000;
+        }
     }
 
-    .articlenumber{
+    .articleid{
         b{
             color: #000;
         }
