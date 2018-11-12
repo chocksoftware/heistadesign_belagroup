@@ -39,6 +39,15 @@
   color: #000;
 }
 
+#top-bar #right-bar ul li .anicon-search-item:before {
+  background: #000;
+}
+
+#top-bar #right-bar ul li .anicon-search-item:after {
+  background: #fff;
+  border: 1px solid #000;
+}
+
 .navbar {
   background: url(https://www.zeitlounge.com/layout/zeitlounge2016/body-bgd.jpg);
   height: 93px;
