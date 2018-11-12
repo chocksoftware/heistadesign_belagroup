@@ -96,17 +96,17 @@
                                 :is-variation-selected="isVariationSelected"></add-to-basket>
                         <slot name="AfterAddToBasket"></slot>
 
-                        <!-- Preisanfrage -->
-                    <div class="m-b-3">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Preisanfrage
-                        </button>
-                    </div>
+                         <slot name="AfterPrice"></slot>
                     </div>
 
-                    <slot name="AfterPrice"></slot>
+                   
                     
-                    
+                    <!-- Preisanfrage -->
+                        <div class="m-b-3">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                Preisanfrage
+                            </button>
+                        </div>
 
                     
 
