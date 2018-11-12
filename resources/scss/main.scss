@@ -32,6 +32,8 @@
     #right-bar {
         ul {
             li {
+
+
                 list-style-type: none;
                 display: block;
                 float: left;
@@ -52,6 +54,16 @@
                         }
                     }
                     
+                }
+
+                .anicon-search-item{
+                  &:before{
+                      background: #000;
+                  } 
+                  &:after{
+                      background: #fff;
+                      border: 1px solid #000;
+                  }
                 }
             }
 
