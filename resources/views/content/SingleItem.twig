@@ -35,6 +35,8 @@
                             <i aria-hidden="true" class="fa fa-shopping-truck"></i>
                             ${ currentVariation.variation.availability.names.name }
                         </span>
+
+                        
                     </span>
 
                 </div>
@@ -123,6 +125,11 @@
                         <span class="articlenumber small text-muted" style="color: #000">
                             <b>{{ trans("Ceres::Template.singleItemNumber") }}</b>
                             <span>${ currentVariation.variation.number }</span>
+                        </span>
+
+                        <span class="articlenumber small text-muted" style="color: #000">
+                            <b>Item ID</b>
+                            <span>${ currentVariation.variation.itemId }</span>
                         </span>
                     </div>
                 </div>
