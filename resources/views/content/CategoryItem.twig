@@ -12,8 +12,23 @@
     {{ component( "Ceres::ItemList.Components.ItemsPerPage") }}
     {{ component( "Ceres::ItemList.Components.Pagination") }}
 
-    {% if ceresConfig.item.showCategoryImage %}
-        {% include "Ceres::Category.Item.Partials.CategoryParallaxImage" with { 'category': category } %}
+     {% if ceresConfig.item.showCategoryImage %}
+        
+        <div class="parallax-img-container"{% if category.details[0].imagePath is not empty %} style="background-image: url(/documents/{{ category.details[0].imagePath }});"{% endif %}>
+            <div class="container-max">
+               
+            </div>
+        </div>
+        <div class="container-max">
+            <div class="row m-t-1">
+                <div class="col-xs-12">
+                    <h1 class="h2 category-title">{{ category.details[0].name }}</h1>
+                    {% if ceresConfig.item.showCategoryDescription %}
+                        <div id="category-description-container" class="category-description m-b-1">{{ category.details[0].description | raw }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     {% endif %}
 
     {% set shippingCat = config("Ceres.global.shippingCostsCategoryId") %}
