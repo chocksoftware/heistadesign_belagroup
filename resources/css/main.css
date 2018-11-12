@@ -4,9 +4,16 @@
 }
 
 #top-bar #left-bar ul li {
+  margin: 0px;
   display: block;
   float: left;
   padding: 5px;
+}
+
+#top-bar #left-bar ul li p {
+  font-size: .92857rem;
+  line-height: 1.07143rem;
+  font-weight: 700;
 }
 
 #top-bar #right-bar ul li {
@@ -70,67 +77,67 @@ body p a:hover {
   cursor: pointer;
 }
 
-body .box-row {
+.box-row {
   margin-top: 24px;
 }
 
-body .box-row:first {
+.box-row:first {
   margin-top: 48px;
 }
 
-body .box-row:last {
+.box-row:last {
   margin-bottom: 50px;
 }
 
-body .box-row .box .box-home {
+.box-row .box .box-home {
   background-color: #fff;
 }
 
-body .box-row .box .box-home a {
+.box-row .box .box-home a {
   width: 100%;
   height: 100%;
   padding: 0;
 }
 
-body .box-row .box .box-home a img {
+.box-row .box .box-home a img {
   width: 100%;
   height: 100%;
 }
 
-body .box-row .box .box-home .box-footer {
+.box-row .box .box-home .box-footer {
   border: 1px solid #000;
   text-align: center;
   background-color: #fff;
 }
 
-body .box-row .box .box-home .box-footer img {
+.box-row .box .box-home .box-footer img {
   vertical-align: middle;
   margin-left: auto;
   margin-right: auto;
 }
 
-body .single {
+.single {
   background-color: #fff;
 }
 
-body .single hr {
+.single hr {
   border-top: 3px double #999;
 }
 
-body .single .single-description {
+.single .single-description {
   line-height: 1;
 }
 
-body .single .single-description #articleDesc {
+.single .single-description #articleDesc {
   color: #000;
   font-size: 13px;
 }
 
-body .single .single-description #articleDesc p {
+.single .single-description #articleDesc p {
   line-height: 1;
 }
 
-body .single .single-description #articleDesc p strong {
+.single .single-description #articleDesc p strong {
   color: #666;
   display: block;
   font-size: 10px;
@@ -141,17 +148,17 @@ body .single .single-description #articleDesc p strong {
   display: block;
 }
 
-body .single .technical-details h2 {
+.single .technical-details h2 {
   color: #c00;
   font-weight: 300;
   text-align: center;
 }
 
-body .single .technical-details #item_description {
+.single .technical-details #item_description {
   text-align: center;
 }
 
-body .single .technical-details #item_description .features {
+.single .technical-details #item_description .features {
   list-style-type: none;
   max-width: none;
   display: inline-block;
@@ -162,30 +169,30 @@ body .single .technical-details #item_description .features {
   columns: 2;
 }
 
-body .single .technical-details #item_description .features li {
+.single .technical-details #item_description .features li {
   color: #c00;
   font-weight: 600;
   margin-bottom: 40px;
 }
 
-body .single .technical-details #item_description .features li::before {
+.single .technical-details #item_description .features li::before {
   content: "\f013";
   font-family: FontAwesome;
   margin-right: 1ex;
 }
 
-body .single .technical-details #item_description .features li dl {
+.single .technical-details #item_description .features li dl {
   margin-top: 1em;
 }
 
-body .single .technical-details #item_description .features li dl dt {
+.single .technical-details #item_description .features li dl dt {
   color: #666;
   font-size: 10px;
   margin-bottom: 5px;
   text-transform: uppercase;
 }
 
-body .single .technical-details #item_description .features li dl dd {
+.single .technical-details #item_description .features li dl dd {
   border-bottom: 1px solid #e6e6e6;
   color: #000;
   font-size: 13px;
@@ -193,9 +200,17 @@ body .single .technical-details #item_description .features li dl dd {
   padding-bottom: 1em;
 }
 
-body .single .availability::before {
+.single .availability::before {
   content: "\f0d1";
   color: #fff;
+}
+
+.single .articlenumber b {
+  color: #000;
+}
+
+.single .articlenumber span {
+  color: #000;
 }
 
 .footer {
