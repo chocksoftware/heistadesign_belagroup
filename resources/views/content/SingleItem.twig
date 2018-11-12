@@ -91,22 +91,24 @@
                                 template="#vue-add-to-basket"
                                 v-if="currentVariation.filter.isSalable"
                                 :item="$store.state.item.variation.documents[0].data"
-                                :show-quantity="false"
+                                :show-quantity="true"
                                 :missing-order-properties="variationMissingProperties"
                                 :is-variation-selected="isVariationSelected"></add-to-basket>
                         <slot name="AfterAddToBasket"></slot>
+
+                        <!-- Preisanfrage -->
+                    <div class="m-b-3">
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                            Preisanfrage
+                        </button>
+                    </div>
                     </div>
 
                     <slot name="AfterPrice"></slot>
                     
                     
 
-                    <!-- Preisanfrage -->
-                    <div class="m-b-3">
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                            Preisanfrage
-                        </button>
-                    </div>
+                    
 
                     <!-- Wunschliste -->
                     {% if "wish-list" in enabledRoutes or "all" in enabledRoutes %}
