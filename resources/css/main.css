@@ -3,11 +3,19 @@
   background-color: #fff;
 }
 
+#top-bar #left-bar {
+  margin-top: 5px;
+  padding: 14px 0px 5px 0px;
+}
+
 #top-bar #left-bar ul li {
-  margin: 0px;
   display: block;
   float: left;
-  padding: 5px;
+  margin-left: 44px;
+}
+
+#top-bar #left-bar ul li:first {
+  margin-left: -25px;
 }
 
 #top-bar #left-bar ul li p {

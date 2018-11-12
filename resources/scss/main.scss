@@ -8,15 +8,17 @@
 
 #top-bar {
     #left-bar{
+        margin-top: 5px;
+        padding: 14px 0px 5px 0px;
         ul{
             li{
                 &:first{
-
+                    margin-left: -25px;
                 }
-                margin: 0px;
+                
                 display: block;
                 float: left;
-                padding: 5px;
+                margin-left: 44px;
 
                 p{
                     font-size: .92857rem;
