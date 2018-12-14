@@ -12,7 +12,7 @@
     {{ component( "Ceres::ItemList.Components.ItemsPerPage") }}
     {{ component( "Ceres::ItemList.Components.Pagination") }}
      
-     {% if ceresConfig.item.showCategoryImage %}
+    
     <div class="container-max">  
         <div class="row m-t-1">
             {% if category.details[0].imagePath is not empty %}
@@ -38,7 +38,7 @@
             {% endif %}
         </div>
     </div>        
-    {% endif %}
+   
 
     {% set shippingCat = config("Ceres.global.shippingCostsCategoryId") %}
 
