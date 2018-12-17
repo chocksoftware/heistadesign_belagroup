@@ -1,4 +1,4 @@
-{% import "Ceres::Category.Macros.CategoryTree" as Tree %}
+{% import "HeistaDesign::Macros.CategoryTree" as Tree %}
 
 <ul class="mainmenu pull-lg-right">
     {{ Tree.get_nav_bar(
@@ -6,9 +6,9 @@
         "",
         ceresConfig.header.megamenuLevels,
         {
-            "1": ceresConfig.header.megamenuItemsStage1,
-            "2": ceresConfig.header.megamenuItemsStage2,
-            "3": ceresConfig.header.megamenuItemsStage3
+            "1": 30,
+            "2": 30,
+            "3": 0,
         }
     ) }}
 </ul>
