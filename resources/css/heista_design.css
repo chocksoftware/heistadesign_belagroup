@@ -40,12 +40,14 @@
     background-color: #000000b5; }
   .navbar #mainNavbarCollapsable .mainmenu {
     margin-top: 14px; }
-    .navbar #mainNavbarCollapsable .mainmenu li a:hover {
-      color: #000; }
+    .navbar #mainNavbarCollapsable .mainmenu li a {
+      color: #fff; }
+      .navbar #mainNavbarCollapsable .mainmenu li a:hover {
+        color: #000000; }
     .navbar #mainNavbarCollapsable .mainmenu li span {
       color: #fff; }
     .navbar #mainNavbarCollapsable .mainmenu li ul li {
-      padding: 0px 10px; }
+      padding: 10px; }
 
 body #page-body,
 .page-content {
