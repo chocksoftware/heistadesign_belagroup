@@ -11,15 +11,13 @@
 #top-bar {
 
     .navbar{
-        .brand-wrapper{
-            @media screen and (max-width: 992px) {
+        @media screen and (max-width: 992px) {
+            .brand-wrapper{
                 padding: 23px 15px;
             }
         }
-
-        img{
-            @media screen and (max-width: 314px) {
-                
+        @media screen and (max-width: 314px) {
+            img{ 
                 width: 175px;
             }
         }
