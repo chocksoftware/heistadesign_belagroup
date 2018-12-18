@@ -6,7 +6,32 @@
     background-color: #fff;
 }
 
+
+
 #top-bar {
+
+    .navbar{
+        .overlay{
+            .container-max{
+                @media screen and (max-width: 992px) {
+                    padding: 28px;
+                  }
+
+                .row{
+                    .brand-wrapper{
+                        .navbar-brand{
+                            img{
+                                @media screen and (max-width: 302px) {
+                                    width: 130px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     #left-bar{
         margin-top: 5px;
         padding: 14px 0px 5px 0px;
