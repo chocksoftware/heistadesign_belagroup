@@ -132,10 +132,11 @@
 
 
 //--------------pade body 
-body #page-body,
-.page-content {
+body #page-body, .page-content {
     background-color: #fff;
 }
+
+
 
 body {
     p {
@@ -171,6 +172,9 @@ body {
         .box .box-home {
             background-color: #fff;
 
+            
+            
+
             a {
                 width: 100%;
                 height: 100%;
@@ -193,6 +197,12 @@ body {
                     margin-right: auto;
                 }
             }
+
+            
+            @media screen and (max-width: 314px) {
+                margin-bottom: 20px;
+            }
+
         }
     }
 //--------------end homepage

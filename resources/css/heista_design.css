@@ -55,8 +55,7 @@
     .navbar #mainNavbarCollapsable .mainmenu li ul li {
       padding: 10px; }
 
-body #page-body,
-.page-content {
+body #page-body, .page-content {
   background-color: #fff; }
 
 body p {
@@ -93,6 +92,9 @@ body p {
         vertical-align: middle;
         margin-left: auto;
         margin-right: auto; }
+    @media screen and (max-width: 314px) {
+      .box-row .box .box-home {
+        margin-bottom: 20px; } }
 
 .single {
   background-color: #fff; }
