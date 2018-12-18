@@ -24,6 +24,7 @@
                         </div>
                     </div>
                 </div>
+                <p>{{itemData | json_encode}}</p>
                 <!-- ITEM DESCRIPTION -->
                 <div class="col-md-3 offset-md-1 m-y-3" >
                     {% if ('item.shortDescription' in itemData or 'all' in itemData)%}
