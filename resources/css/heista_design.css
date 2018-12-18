@@ -3,11 +3,11 @@
   background-color: #fff; }
 
 @media screen and (max-width: 992px) {
-  #top-bar .navbar .overlay .container-max {
-    padding: 28px; } }
-@media screen and (max-width: 302px) {
-  #top-bar .navbar .overlay .container-max .row .brand-wrapper .navbar-brand img {
-    width: 130px; } }
+  #top-bar .navbar .brand-wrapper {
+    padding: 23px 15px; } }
+@media screen and (max-width: 314px) {
+  #top-bar .navbar img {
+    width: 175px; } }
 #top-bar #left-bar {
   margin-top: 5px;
   padding: 14px 0px 5px 0px; }

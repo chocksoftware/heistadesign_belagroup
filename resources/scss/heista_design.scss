@@ -11,23 +11,16 @@
 #top-bar {
 
     .navbar{
-        .overlay{
-            .container-max{
-                @media screen and (max-width: 992px) {
-                    padding: 28px;
-                }
+        .brand-wrapper{
+            @media screen and (max-width: 992px) {
+                padding: 23px 15px;
+            }
+        }
 
-                .row{
-                    .brand-wrapper{
-                        .navbar-brand{
-                            img{
-                                @media screen and (max-width: 302px) {
-                                    width: 130px;
-                                }
-                            }
-                        }
-                    }
-                }
+        img{
+            @media screen and (max-width: 314px) {
+                
+                width: 175px;
             }
         }
     }
