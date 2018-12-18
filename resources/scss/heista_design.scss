@@ -237,6 +237,8 @@ body {
                     color: #c00;
                     font-weight: 600;
                     margin-bottom: 40px;
+                    break-inside: avoid-column;
+                    -webkit-column-break-inside: avoid;
 
                     &::before {
                         content: "\f013";
